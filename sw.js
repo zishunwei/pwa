@@ -9,6 +9,7 @@ const cacheFiles = [
   'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css',
   'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js',
   '/images/icons/app-icon-144x144.png',
+  'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson',
   '/naturalearth/0/0/0.png',
   '/naturalearth/1/0/0.png',
   '/naturalearth/1/0/1.png',

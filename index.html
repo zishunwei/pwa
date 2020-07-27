@@ -46,7 +46,7 @@
     }
 
     #map {
-      width: 800px;
+      width: 100%;
       height: 600px
     }
   </style>
@@ -86,7 +86,7 @@
         map.dragging.enable();
       })
 
-      var map = L.map('map').setView([0.0, -1.801936377887614e-11], 3.0);
+      var map = L.map('map').setView([51.52, -0.13], 3);
       var baselayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
         attribution: 'Map data &copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -104,6 +104,28 @@
         'naturalearth': mytile
       }).addTo(map);
     })
+
+    function getEarthquakeData() {
+      var layerURL =
+        "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson";
+      $.ajax({
+        url: layerURL,
+        crossDomain: true,
+        success: function(result) {
+          console.log(result); // check that the data is correct
+          // add the JSON layer onto the map - it will appear using the default icons
+          // load the geoJSON layer
+          earthquakelayer = L.geoJson(result, {
+            // use point to layer to create the points
+            pointToLayer: function(feature, latlng) {
+              return L.marker(latlng).bindPopup("<b>" + feature.properties.place + "</b>");
+            }, // end of point to layer
+          }).addTo(map);
+          // change the map zoom so that all the data is shown
+          map.fitBounds(earthquakelayer.getBounds());
+        } // end of the inner function
+      }); // end of the ajax request
+    } // end of the getEarthquakeData function
   </script>
 </head>
 
@@ -114,6 +136,11 @@
       </div>
     </div>
   </div>
+
+  <button id="loadEarthquakeData" name="loadEarthquakeData" onclick="getEarthquakeData()">Click here to load the Earthquake data
+  </button>
+
+
 </body>
 
 </html>
