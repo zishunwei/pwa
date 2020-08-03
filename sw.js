@@ -9,7 +9,6 @@ const cacheFiles = [
   'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css',
   'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js',
   '/images/icons/app-icon-144x144.png',
-  'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson',
   '/naturalearth/0/0/0.png',
   '/naturalearth/1/0/0.png',
   '/naturalearth/1/0/1.png',
@@ -129,11 +128,15 @@ self.addEventListener('fetch', function(event) {
         // Return the cached version
         return response;
       } else {
-        //However if we don't find it in the request, then we want to return the fetch request where we reach out or where we simply continue with the original request, so return fetch event request.
-        // So this now allows us to continue with the network request if we want to get something which is not cached but get it from the cache, well if it is in there.
         return fetch(event.request)
+            .then(function (res) {
+              return caches.open('dynamic')
+                  .then(function (cache) {
+                    cache.put(event.request.url, res.clone());
+                    return res;
+                  })
+            });
       }
-
     }) // end caches.match(e.request)
   ); // end e.respondWith
 });
