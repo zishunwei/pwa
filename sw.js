@@ -4,6 +4,7 @@ const cacheFiles = [
   '/app.js',
   '/manifest.json',
   '/images/icons/app-icon-144x144.png',
+  '/js/main.js',
   '/js/FeatureGroup.LoadEvents.js',
   'https://unpkg.com/leaflet@1.6.0/dist/leaflet.css',
   'https://unpkg.com/leaflet@1.6.0/dist/leaflet.js',
