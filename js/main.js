@@ -3,13 +3,14 @@ var div = document.createElement('div');
 div.setAttribute('style', 'position:fixed;margin:0;padding:0;left:0;top:0;width:100%;height:100%;');
 document.documentElement.appendChild(div);
 
-var map = L.map(div).setView([50.7, -1.2], 3);
+var map = L.map(div).setView([54.5, -2], 6);
 
-var tileLayer = L.tileLayer('/maptiles/{z}/{x}/{y}.png', {
-  maxZoom: 3,
+var tileLayer = L.tileLayer('/maptiles_uk/{z}/{x}/{y}.png', {
+  minZoom: 6,
+  maxZoom: 9,
 });
 
-fetch('/geojson/scotland_pois.geojson')
+fetch('/geojson/london_pois.geojson')
   .then(function(response) {
     return response.json();
   })

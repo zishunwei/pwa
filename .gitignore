@@ -1,4 +1,5 @@
-/maptiles/
+/maptiles_earth/
+/maptiles_uk/
 /node_modules/
 /package-lock.json
 /geojson/
