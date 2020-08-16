@@ -3,17 +3,22 @@ const cacheFiles = [
   '/index.html',
   '/app.js',
   '/manifest.json',
-  '/images/icons/app-icon-144x144.png',
   'favicon.ico',
   '/js/main.js',
   '/js/FeatureGroup.LoadEvents.js',
   'https://unpkg.com/leaflet@1.6.0/dist/leaflet.css',
   'https://unpkg.com/leaflet@1.6.0/dist/leaflet.js',
-  'https://unpkg.com/leaflet@1.6.0/dist/images/marker-icon.png',
-  'https://unpkg.com/leaflet@1.6.0/dist/images/marker-icon-2x.png',
-  'https://unpkg.com/leaflet@1.6.0/dist/images/marker-shadow.png',
-  'geojson/isle_of_wight_pois.geojson',
-  'POIgeom.json',
+  '/images/icons/app-icon-144x144.png',
+  '/images/icons/apple-icon-152x152.png',
+  '/images/icons/apple-icon-180x180.png',
+  '/images/icons/apple-icon-144x144.png',
+  '/images/icons/apple-icon-120x120.png',
+  '/images/icons/apple-icon-114x114.png',
+  '/images/icons/apple-icon-76x76.png',
+  '/images/icons/apple-icon-72x72.png',
+  '/images/icons/apple-icon-60x60.png',
+  '/images/icons/apple-icon-57x57.png',
+  'geojson/scotland_pois.geojson',
   '/maptiles/0/0/0.png', '/maptiles/1/0/0.png', '/maptiles/1/0/1.png', '/maptiles/1/1/0.png', '/maptiles/1/1/1.png', '/maptiles/2/0/0.png', '/maptiles/2/0/1.png', '/maptiles/2/0/2.png', '/maptiles/2/0/3.png', '/maptiles/2/1/0.png', '/maptiles/2/1/1.png', '/maptiles/2/1/2.png', '/maptiles/2/1/3.png', '/maptiles/2/2/0.png', '/maptiles/2/2/1.png', '/maptiles/2/2/2.png', '/maptiles/2/2/3.png', '/maptiles/2/3/0.png', '/maptiles/2/3/1.png', '/maptiles/2/3/2.png', '/maptiles/2/3/3.png', '/maptiles/3/0/0.png', '/maptiles/3/0/1.png', '/maptiles/3/0/2.png', '/maptiles/3/0/3.png', '/maptiles/3/0/4.png', '/maptiles/3/0/5.png', '/maptiles/3/0/6.png', '/maptiles/3/0/7.png', '/maptiles/3/1/0.png', '/maptiles/3/1/1.png', '/maptiles/3/1/2.png', '/maptiles/3/1/3.png', '/maptiles/3/1/4.png', '/maptiles/3/1/5.png', '/maptiles/3/1/6.png', '/maptiles/3/1/7.png', '/maptiles/3/2/0.png', '/maptiles/3/2/1.png', '/maptiles/3/2/2.png', '/maptiles/3/2/3.png', '/maptiles/3/2/4.png', '/maptiles/3/2/5.png', '/maptiles/3/2/6.png', '/maptiles/3/2/7.png', '/maptiles/3/3/0.png', '/maptiles/3/3/1.png', '/maptiles/3/3/2.png', '/maptiles/3/3/3.png', '/maptiles/3/3/4.png', '/maptiles/3/3/5.png', '/maptiles/3/3/6.png', '/maptiles/3/3/7.png', '/maptiles/3/4/0.png', '/maptiles/3/4/1.png', '/maptiles/3/4/2.png', '/maptiles/3/4/3.png', '/maptiles/3/4/4.png', '/maptiles/3/4/5.png', '/maptiles/3/4/6.png', '/maptiles/3/4/7.png', '/maptiles/3/5/0.png', '/maptiles/3/5/1.png', '/maptiles/3/5/2.png', '/maptiles/3/5/3.png', '/maptiles/3/5/4.png', '/maptiles/3/5/5.png', '/maptiles/3/5/6.png', '/maptiles/3/5/7.png', '/maptiles/3/6/0.png', '/maptiles/3/6/1.png', '/maptiles/3/6/2.png', '/maptiles/3/6/3.png', '/maptiles/3/6/4.png', '/maptiles/3/6/5.png', '/maptiles/3/6/6.png', '/maptiles/3/6/7.png', '/maptiles/3/7/0.png', '/maptiles/3/7/1.png', '/maptiles/3/7/2.png', '/maptiles/3/7/3.png', '/maptiles/3/7/4.png', '/maptiles/3/7/5.png', '/maptiles/3/7/6.png', '/maptiles/3/7/7.png'
 ];
 
@@ -52,7 +57,6 @@ self.addEventListener('fetch', function(event) {
         // So this now allows us to continue with the network request if we want to get something which is not cached but get it from the cache, well if it is in there.
         return fetch(event.request)
       }
-
     }) // end caches.match(e.request)
   ); // end e.respondWith
 });
