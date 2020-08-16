@@ -10,20 +10,8 @@ var tileLayer = L.tileLayer('/maptiles_uk/{z}/{x}/{y}.png', {
   maxZoom: 9,
 });
 
-fetch('/geojson/london_pois.geojson')
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(result) {
-    console.log(result);
-    var POIlayer = L.geoJson(result, {
-      // use point to layer to create the points
-      pointToLayer: function(feature, latlng) {
-        return L.circleMarker(latlng).bindPopup("<b>" + feature.properties.name + "</b>");
-      }
-    }) // end of point to layer
 
-    var group = L.FeatureGroup.loadEvents([tileLayer, POIlayer]);
+    var group = L.FeatureGroup.loadEvents([tileLayer]);
 
     group.on({
       loading: function() {
@@ -39,4 +27,3 @@ fetch('/geojson/london_pois.geojson')
     });
     
     group.addTo(map);
-  })
