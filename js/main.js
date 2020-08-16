@@ -11,19 +11,19 @@ var tileLayer = L.tileLayer('/maptiles_uk/{z}/{x}/{y}.png', {
 });
 
 
-    var group = L.FeatureGroup.loadEvents([tileLayer]);
+var group = L.FeatureGroup.loadEvents([tileLayer]);
 
-    group.on({
-      loading: function() {
-        console.log('The layer group just fired the "loading" event!');
-        document.body.className = "loading";
-      },
-      load: function() {
-        console.log('The layer group just fired the "load" event!');
-        document.body.className = "";
-        const millis = Date.now() - start;
-        console.log('seconds elapsed = ' + millis / 1000);
-      }
-    });
-    
-    group.addTo(map);
+group.on({
+  loading: function() {
+    console.log('The layer group just fired the "loading" event!');
+    document.body.className = "loading";
+  },
+  load: function() {
+    console.log('The layer group just fired the "load" event!');
+    document.body.className = "";
+    const millis = Date.now() - start;
+    console.log('seconds elapsed = ' + millis / 1000);
+  }
+});
+
+group.addTo(map);
