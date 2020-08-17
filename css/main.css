@@ -1,0 +1,33 @@
+#map {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#loading-indicator {
+  display: none;
+}
+
+.loading #loading-indicator {
+  display: block;
+  z-index: 9999;
+  position: fixed;
+  bottom: 1em;
+  margin-left: 40%;
+}
+
+#loading-indicator .loading-text {
+  background-color: white;
+  border: solid 1px black;
+  padding: 0.1em 1em 0.1em 1em;
+  font-family: Verdana, Arial, 'Lucida Grande', Sans-Serif
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
