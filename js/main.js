@@ -3,11 +3,11 @@ var div = document.createElement('div');
 div.setAttribute('style', 'position:fixed;margin:0;padding:0;left:0;top:0;width:100%;height:100%;');
 document.documentElement.appendChild(div);
 
-var map = L.map(div).setView([54.5, -2], 9);
+var map = L.map(div).setView([54.5, -2], 8);
 
 var tileLayer = L.tileLayer('/maptiles_uk/{z}/{x}/{y}.png', {
   minZoom: 5,
-  maxZoom: 11,
+  maxZoom: 8,
 });
 
 
@@ -15,7 +15,6 @@ var group = L.FeatureGroup.loadEvents([tileLayer]);
 
 group.on({
   loading: function() {
-    start = Date.now();
     console.log('The layer group just fired the "loading" event!');
     document.body.className = "loading";
   },
