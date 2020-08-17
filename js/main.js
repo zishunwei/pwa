@@ -10,20 +10,15 @@ var tileLayer = L.tileLayer('/maptiles_uk/{z}/{x}/{y}.png', {
   maxZoom: 8,
 });
 
-fetch('/geojson/cambridgeshire_pois.geojson')
+fetch('/geojson/roads/rutland_roads.geojson')
   .then(function(response) {
     return response.json();
   })
   .then(function(result) {
     console.log(result);
-    var POIlayer = L.geoJson(result, {
-      // use point to layer to create the points
-      pointToLayer: function(feature, latlng) {
-        return L.circleMarker(latlng).bindPopup("<b>" + feature.properties.name + "</b>");
-      }
-    }) // end of point to layer
+    var roadslayer = L.geoJSON(result);
 
-    var group = L.FeatureGroup.loadEvents([tileLayer, POIlayer]);
+    var group = L.FeatureGroup.loadEvents([tileLayer, roadslayer]);
 
     group.on({
       loading: function() {
